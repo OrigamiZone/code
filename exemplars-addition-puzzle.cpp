@@ -35,8 +35,8 @@ int main() {
     int a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0;
     int s1 = 0, s2 = 0, s3 = 0;
 
-    int i = 0;
-    while ((s1 + s2 + s3 != 18 || s1 > 9) && i < 101) {
+    int i = 0;  // Allow 500 guesses.
+    while ((s1 + s2 + s3 != 18 || s1 > 9) && i < 500) {
         a1 = 0;
         a2 = 0;
         a3 = 0;
@@ -56,11 +56,12 @@ int main() {
         s2 = ((a4 + a3) + (a6 + a5) / 10) % 10;
         a2 = unequeRand(a1, a2, a3, a4, a5, a6, s1, s2, s3);
         a1 = unequeRand(a1, a2, a3, a4, a5, a6, s1, s2, s3);
-        s1 = a1 + a2; + ((a4 + a3) + (a6 + a5) / 10);
+        s1 = a1 + a2 + ((a4 + a3) + (a6 + a5) / 10) / 10;
     }
 
     cout<<"\nMath Done !!!";
-    cout<<"\n i =" << i;
+    cout<<"\nNumber of guesses =" << i;
+    
     cout<<"\na1 =" << a1;
     cout<<"\na2 =" << a2;
     cout<<"\na3 =" << a3;
